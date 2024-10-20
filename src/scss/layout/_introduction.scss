@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use "sass:color";
 
 .introduction {
     display: flex;
@@ -18,7 +19,7 @@
             text-align: left;
         }
     }
-    
+
     @include m.desktop {
         h1 {
             font-size: 6rem;
@@ -44,7 +45,7 @@
         align-items: center;
         gap: .5rem;
         justify-content: center;
-        background-color: v.$purple2;
+        background-color: color.adjust(v.$background, $lightness: 3%);
         padding: 1rem 7rem;
         border-radius: 1rem;
         transition: 0.5s ease-in;
@@ -53,38 +54,48 @@
             width: 35px;
             transition: 0.5s ease-in;
             rotate: 5deg;
-        }
-
-        &:hover {
-            background-color: v.$purple3;
-            transition: 0.5s ease-out;
-
-            svg {
-                rotate: -5deg;
-                transition: 0.4s ease-out;
-            }
-
+            stroke: v.$blanco;
         }
 
         a {
             color: v.$blanco;
             font-size: 2.5rem;
             font-weight: 600;
+            transition: 0.5s ease-in;
         }
+
+        &:hover {
+            background-color: color.adjust(v.$background, $lightness: -1%);
+            transition: 0.5s ease-out;
+
+            svg {
+
+                rotate: -5deg;
+                transition: 0.4s ease-out;
+            }
+
+            a {
+
+                transition: 0.4s ease-out;
+            }
+
+        }
+
+
     }
 }
 
-.about{
+.about {
     text-align: center;
     margin: 5rem 0;
 
-    .about-text{
-        h3{
+    .about-text {
+        h3 {
             margin: 0;
             font-size: 4rem;
         }
-        
-        p{
+
+        p {
             font-size: 2.5rem;
             font-weight: 600;
             background-color: v.$background;
@@ -92,13 +103,13 @@
             padding: 0.5rem 2.5rem;
         }
 
-        a{
+        a {
             color: rgb(18, 121, 255);
         }
     }
 }
 
-.links-container{
+.links-container {
     display: flex;
     justify-content: space-around;
     margin: 3rem 0;

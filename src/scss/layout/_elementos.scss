@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use "sass:color";
 
 .elements,
 .container {
@@ -74,8 +75,8 @@
 }
 
 .card {
-    background-color: v.$background-light;
-    border-radius: 0.5rem;
+    background-color: color.adjust(v.$dark-blue-tone-cold, $lightness: 10%);
+    border-radius: 1.2rem;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -83,6 +84,11 @@
     opacity: 1;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); // sombra
+
+    h3{
+        margin-bottom: 1rem;
+    }
 
     &.visible {
         opacity: 1;
@@ -107,24 +113,20 @@
     // Efecto de hover
     &:hover {
         transform: translateY(18px) scale(1.02); // ligero efecto de zoom
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); // sombra
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); // sombra
     }
 }
 
 
 .button {
-    background-color: v.$primary;
-    color: v.$text;
+    background-color: color.adjust(v.$blue, $lightness: 100%);
+    color: v.$background;
     border: none;
-    border-radius: 0.25rem;
+    border-radius: 0.7rem;
     padding: 0.5rem 1rem;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease, opacity 0.3s ease;
-
-    &:hover {
-        background-color: v.$primary-hover;
-    }
 
     &:disabled {
         opacity: 0.5;

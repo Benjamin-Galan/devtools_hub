@@ -12,8 +12,34 @@ $primary: #3b82f6;
 $primary-hover: #2563eb;
 $background: #111827;
 $background-light: #1f2937;
-$text: #ffffff;
-$text-muted: #9ca3af;
+$text: #fcfcfc;
+$text-muted: #d2d7dd;
+
+$blue: #1e3a8a; // Azul
+$blue-lighten: #3b82f6; // Más claro
+$blue-darken: #1e40af; // Más oscuro
+$blue-tone-similar: #1d4ed8; // Tono similar
+$blue-tone-cold: #1e3a8a; // Tono frío
+$blue-tone-warm: #2563eb; // Tono cálido
+
+$dark-blue: #1e1f26; // Azul oscuro
+$dark-blue-lighten: #4b5563; // Más claro
+$dark-blue-darken: #0f172a; // Más oscuro
+$dark-blue-tone-similar: #334155; // Tono similar
+$dark-blue-tone-cold: #0f172a; // Tono frío
+$dark-blue-tone-warm: #1e293b; // Tono cálido
+
+// Variaciones de $background
+$background-lighten-1: #0B2B38;
+$background-darken-1: #000F1A;
+$background-desaturated: #001A27;
+$background-warm: #02232D;
+
+// Variaciones de $background-light
+$background-light-lighten-1: #0C4B8A;
+$background-light-darken-1: #022C54;
+$background-light-desaturated: #02405B;
+$background-light-warm: #034C7B;;
 
 // Fuentes
 $fuente_principal: 'Lato', sans-serif;
@@ -47,6 +73,7 @@ $blanco: #FFFFFF;
 $gris: #e1e1e1;
 $grisOscuro: #333333;
 $rojo: rgb(219, 35, 35);
+$naranja: #E08709;;
 
 // Fuentes
 $delgada: 300;
