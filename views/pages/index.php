@@ -27,7 +27,7 @@
 
     <section class="about">
         <div class="about-text">
-            <h3>Creado por <a href="">benja.dev</a></h3>
+            <h3>Creado por <a href="https://my-portfolio-swart-tau-68.vercel.app/" target="_blank">benja.dev</a></h3>
         </div>
 
         <div class="links-container">
