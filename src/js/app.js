@@ -1,8 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     getCategories();
     mobileMenu();
     dropDown();
     disabledDrop();
+    disableBlur();
 });
 
 
@@ -11,7 +12,7 @@ function getCategories() {
     const toolsContainer = document.getElementById('toolsContainer');
 
     tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const categoryId = this.getAttribute('data-category-id');
             
             // Remove 'active' class from all buttons
@@ -26,7 +27,7 @@ function getCategories() {
             cards.forEach(card => {
                 const cardCategoryId = card.getAttribute('data-category-id');
                 if (categoryId == 0 || cardCategoryId == categoryId) {
-                    card.style.display = 'block'; // Mostrar
+                    card.style.display = 'flex'; // Mostrar
                 } else {
                     card.style.display = 'none'; // Ocultar
                 }
@@ -35,26 +36,35 @@ function getCategories() {
     });
 }
 
-
-
-function disabledDrop(){
+function disabledDrop() {
     const header = document.querySelector('.header')
     const dropdown = document.querySelector('.nav .dropdown')
     const nodropdown = document.querySelector('.nav .no-drop')
 
-    if(header.classList.contains('inicio')){
+    if (header.classList.contains('inicio')) {
         dropdown.style.display = 'none'
     } else {
         nodropdown.style.display = 'none'
     }
 }
 
-function mobileMenu(){
+function disableBlur() {
+    const tools = document.querySelector('.tools-grid')
+    const header = document.querySelector('.header')
+
+    if (header.classList.contains('inicio')) {
+        tools.classList.add('blur')
+    } else {
+        tools.classList.remove('blur')
+    }
+}
+
+function mobileMenu() {
     const menu = document.querySelector('.menu');
     menu.addEventListener('click', showMenu)
 }
 
-function showMenu(){
+function showMenu() {
     const navigation = document.querySelector('.nav')
     navigation.classList.toggle('show-menu')
 
@@ -67,12 +77,12 @@ function showMenu(){
     });
 }
 
-function dropDown(){
+function dropDown() {
     const dropdown = document.querySelector('.dropdown')
     dropdown.addEventListener('click', showCategories)
 }
 
-function showCategories(){
+function showCategories() {
     const categories = document.querySelector('.categories')
     const rotate = document.querySelector('.icon-tabler-chevron-down')
     categories.classList.toggle('show-list')
