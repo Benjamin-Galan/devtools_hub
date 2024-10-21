@@ -60,7 +60,6 @@ class CategoryController{
 
     public static function delete(){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            
             $id = $_POST['id'];
             $id = filter_var($id, FILTER_VALIDATE_INT);
 
