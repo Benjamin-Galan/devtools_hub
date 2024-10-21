@@ -14,7 +14,7 @@
 
     <section>
         <h2>Lista de Herramientas</h2>
-        <a href="/tools/create" class="new-category-btn">
+        <a href="/tools/create" class="new-btn">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
@@ -23,6 +23,7 @@
             </svg>
             Nueva Herramienta
         </a>
+
         <div class="table-container">
             <table>
                 <thead>
@@ -66,7 +67,7 @@
 
     <section>
         <h2>Lista de Categorías</h2>
-        <a href="/categories/create" class="new-category-btn">
+        <a href="/categories/create" class="new-btn">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
@@ -75,6 +76,7 @@
             </svg>
             Nueva Categoría
         </a>
+
         <div class="table-container">
             <table>
                 <thead>
