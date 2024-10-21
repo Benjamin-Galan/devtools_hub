@@ -36,27 +36,35 @@ $auth = $_SESSION['login'] ?? false;
                 </div>
 
                 <div class="menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="40"
-                        height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-deep" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M4 6l16 0" />
-                        <path d="M4 12l16 0" />
-                        <path d="M4 18l16 0" />
+                        <path d="M4 6h16" />
+                        <path d="M7 12h13" />
+                        <path d="M10 18h10" />
                     </svg>
                 </div>
             </div>
 
             <nav class="nav">
-                <a href="/elements" class="nav-link">Categorías</a>
-
                 <?php
                 if ($auth) { ?>
-                    <a href="/logout" class="nav-link">Cerrar Sesion</a>
+                    <a href="/admin" class="nav-link">Administrar</a>
+                    <a href="/logout" class="nav-link">Salir</a>
                 <?php }
                 ?>
 
-                <div class="dropdown drop">
+                <a href="/elements" class="nav-link no-drop">Categorías
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M14 4h6v6h-6z" />
+                        <path d="M4 14h6v6h-6z" />
+                        <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                        <path d="M7 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                    </svg>
+                </a>
+
+
+                <div class="dropdown">
                     <span>Categorías</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -70,9 +78,8 @@ $auth = $_SESSION['login'] ?? false;
     <?php echo $contenido; ?>
 
     <footer>
-        <div class="container">
-            <p>Creado con ❤️ por Benjamín Galán</p>
-            <p class="copyright">© 2023 DevTools Hub. Todos los derechos reservados.</p>
+        <div class="footer container">
+            <p class="copyright">© <?php echo date('Y') ?> DevTools Hub. Todos los derechos reservados.</p>
         </div>
     </footer>
 
