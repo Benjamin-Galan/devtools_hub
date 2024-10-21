@@ -44,7 +44,7 @@ class ToolController
                 $manager = new ImageManager(Driver::class);
                 $image = $manager->read($_FILES['tool']['tmp_name']['image']);
                 // crop the best fitting 5:3 (600x360) ratio and resize to 600x360 pixel
-                $image->cover(1024, 768);
+                $image->cover(800, 600);
 
                 $tool->setImage($imgName);
             }
