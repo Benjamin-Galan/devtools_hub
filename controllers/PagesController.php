@@ -11,9 +11,11 @@ class PagesController
     public static function index(Router $router)
     {   
         $tools = Tool::get(8);
+        $inicio = true;
 
         $router->render('pages/index', [
-            'tools' => $tools
+            'tools' => $tools,
+            'inicio' => $inicio
         ]);
     }
 
