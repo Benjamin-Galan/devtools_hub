@@ -126,11 +126,9 @@ class ToolController
 
             if ($id) {
                 $type = $_POST['type'];
-                if (validateType($type)) {
-                    if ($type === 'tool') {
-                        $tool = Tool::find($id);
-                        $tool->delete();
-                    }
+                if(validateType($type)){
+                    $tool = Tool::find($id);
+                    $tool->delete();
                 }
             }
         }
