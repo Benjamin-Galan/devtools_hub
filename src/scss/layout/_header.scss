@@ -36,12 +36,12 @@
         }
     }
 
-    .nav-cont{
+    .nav-cont {
         display: flex;
         align-items: center;
         gap: 2rem;
 
-        svg{
+        svg {
             width: 28px;
         }
     }
@@ -92,6 +92,7 @@
         opacity: 1;
         visibility: visible;
         max-height: 800px;
+
         a {
             margin-left: 2rem;
         }
@@ -118,6 +119,20 @@
 
     .nav-link:hover {
         color: var(--primary);
+    }
+
+    .no-drop {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:hover {
+            svg {
+                stroke: v.$primary;
+                cursor: pointer;
+            }
+        }
     }
 }
 

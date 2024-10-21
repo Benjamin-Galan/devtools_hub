@@ -1,38 +1,37 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
 .form-container {
     max-width: 600px;
-    margin: 0 auto;
-
-    body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 20px;
-    }
+    margin: 0 auto 9rem auto;
+    padding: 1rem;
 
     .form-section {
-        background-color: #fff;
+        background-color: #ffffff; // Mantén el fondo blanco para contraste
         border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Aumenta la sombra para profundidad
+        margin: 3rem 0;
         padding: 20px;
         color: #333;
     }
     
     h2 {
-        color: #2c3e50;
+        color: v.$blue-tone-cold; // Usa el tono frío como color de encabezado
         margin-bottom: 20px;
+        font-size: 24px; // Aumenta el tamaño de fuente
+        text-align: center; // Centra el texto
     }
     
     form {
         display: grid;
-        gap: 15px;
+        gap: 20px; // Aumenta el espacio entre elementos
     }
     
     label {
         font-weight: bold;
         margin-bottom: 5px;
         display: block;
+        color: v.$dark-blue-tone-cold; // Usa el tono oscuro para las etiquetas
     }
     
     input[type="text"],
@@ -40,10 +39,19 @@
     textarea,
     select {
         width: 100%;
-        padding: 8px;
+        padding: 10px; // Aumenta el padding para comodidad
         border: 1px solid #ddd;
         border-radius: 4px;
         box-sizing: border-box;
+        transition: border-color 0.3s ease; // Añade transición a los bordes
+    }
+
+    input[type="text"]:focus,
+    input[type="url"]:focus,
+    textarea:focus,
+    select:focus {
+        border-color: v.$blue-tone-cold; // Cambia el color del borde al enfocar
+        outline: none; // Elimina el contorno predeterminado
     }
     
     textarea {
@@ -52,24 +60,18 @@
     }
     
     button {
-        background-color: #3498db;
+        background-color: v.$blue-tone-cold; // Tono frío como fondo del botón
         color: #ffffff;
         border: none;
         padding: 10px 15px;
         border-radius: 4px;
         cursor: pointer;
         font-size: 16px;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease, transform 0.3s ease; // Añade transformación
     }
     
     button:hover {
-        background-color: #2980b9;
-    }
-    
-    @media (max-width: 480px) {
-        .form-section {
-            padding: 15px;
-        }
-    }
+        background-color: #1a4a7a; // Un tono más oscuro para el hover
+        transform: translateY(-2px); // Añade un ligero efecto de elevación
+    } 
 }
-
