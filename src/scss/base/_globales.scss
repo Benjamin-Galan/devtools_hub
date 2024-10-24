@@ -27,6 +27,7 @@ body {
     color: v.$text;
     line-height: 1.5;
     font-family: v.$fuente_principal;
+    min-height: 100vh;
 }
 
 p {
