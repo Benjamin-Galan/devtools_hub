@@ -36,7 +36,7 @@ class ToolController
             $tool = new Tool($_POST['tool']);
 
             //genera un nombre unico
-            $imgName = md5(uniqid(rand(), true)) . ".jpg";
+            $imgName = md5(uniqid(rand(), true)) . ".webp   ";
 
             //make a resize to the image with intervention
             // create new image instance (800 x 600)
@@ -94,10 +94,10 @@ class ToolController
             if ($_FILES['tool']['tmp_name']['image']) {
                 $manager = new ImageManager(Driver::class);
                 $image = $manager->read($_FILES['tool']['tmp_name']['image']);
-                $image->cover(1024, 768);
+                $image->cover(800, 600);
 
                 //genera un nombre unico
-                $imgName = md5(uniqid(rand(), true)) . ".jpg";
+                $imgName = md5(uniqid(rand(), true)) . ".webp";
                 $tool->setImage($imgName);
             }
 
