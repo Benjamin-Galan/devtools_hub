@@ -4,6 +4,7 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\APIController;
 use Controllers\LoginController;
 use Controllers\PagesController;
 use Controllers\CategoryController;
@@ -30,6 +31,10 @@ $router->post('/categories/delete', [CategoryController::class, 'delete']);
 $router->get('/login', [LoginController::class, 'login'] );
 $router->post('/login', [LoginController::class, 'login'] );
 $router->get('/logout', [LoginController::class, 'logout'] );
+
+//api de herramientas
+$router->get('/api/tools', [APIController::class, 'tool']);
+$router->get('/api/category', [APIController::class, 'category']);
 
 //zona publica
 $router->get('/', [PagesController::class, 'index']);
