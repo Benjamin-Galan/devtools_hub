@@ -27,8 +27,23 @@
 }
 
 .links-container {
-    display: flex;
-    justify-content: center;
     margin: 3rem 0;
-    gap: 5rem;
+
+    @include m.telefono {
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+
+    }
+
+    svg {
+        transform: translateY(5px);
+        transition: transform 0.5s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            cursor: pointer;
+            transition: transform 0.5s ease, box-shadow 0.3s ease;
+            transform: scale(1);
+        }
+    }
 }
