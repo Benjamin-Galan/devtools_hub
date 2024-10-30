@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "sass": "sass src/scss:build/css",
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "build": "gulp build"
   },
   "keywords": [
     "dev",

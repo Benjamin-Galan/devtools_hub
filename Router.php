@@ -28,7 +28,7 @@ class Router{
         $protectedRoutes = ['/admin', '/tools/create', '/tools/update', '/tools/delete', '/categories/create', '/categories/update', '/categories/delete', '/logout'];
 
         //obtiene la ruta actual, devuelve la ruta a la que se accede
-        $actualUrl = $_SERVER['PATH_INFO'] ?? '/';
+        $actualUrl = strtok($_SERVER['REQUEST_URI'], '?') ?? '/';
         //Determina el método de la solicitud (GET o POST)
         $method = $_SERVER['REQUEST_METHOD'];
 
@@ -45,7 +45,6 @@ class Router{
         }
 
         if($fn){
-            //Esto puede ser útil si la función necesita acceso a la instancia de la clase Router, lo que permite usar propiedades o métodos de la clase dentro de la función.
             call_user_func($fn, $this);
         } else {
             echo "Pagina no encontrada";
@@ -63,10 +62,3 @@ class Router{
         include __DIR__ . "/views/layout.php";
     }
 }
-
-/*
-En un enrutador web, puedes tener muchas rutas que apuntan a diferentes funciones. 
-Cuando se recibe una solicitud, el enrutador verifica la URL y busca la función 
-correspondiente en un arreglo (como $getRoutes en tu caso). No conoces de antemano 
-qué función se ejecutará hasta que el usuario accede a una URL específica.
-*/

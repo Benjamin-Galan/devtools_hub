@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Función asíncrona para obtener herramientas desde la API
 async function getToolsAPI() {
     try {
-        const URL = '/api/tools'; 
+        const URL = '/api/tools'; //`${location.origin}/api/tools`; 
         const result = await fetch(URL); 
         const tools = await result.json(); 
         //Listar herramientas
