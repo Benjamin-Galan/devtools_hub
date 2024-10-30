@@ -13,6 +13,10 @@ use Controllers\ToolController;
 
 $router = new Router();
 
+//zona publica
+$router->get('/', [PagesController::class, 'index']);
+$router->get('/elements', [PagesController::class, 'elements']);
+
 //zona privada
 $router->get('/admin', [ToolController::class, 'index']);
 $router->get('/tools/create', [ToolController::class, 'create']);
@@ -35,10 +39,5 @@ $router->get('/logout', [LoginController::class, 'logout'] );
 //api de herramientas
 $router->get('/api/tools', [APIController::class, 'tool']);
 $router->get('/api/category', [APIController::class, 'category']);
-
-//zona publica
-$router->get('/', [PagesController::class, 'index']);
-$router->get('/elements', [PagesController::class, 'elements']);
-
 
 $router->comprobarRutas();
