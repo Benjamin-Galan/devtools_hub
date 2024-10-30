@@ -54,7 +54,7 @@ function listTools(tools) {
         // Crea y añade la imagen de la herramienta
         const toolImg = document.createElement('IMG');
         toolImg.loading = 'lazy'; 
-        toolImg.src = `/images/${image}`;
+        toolImg.src = `build/images/${image}`;
         toolImg.alt = 'Imagen de la página';
 
         // Crea y añade la descripción de la herramienta

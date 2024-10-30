@@ -42,7 +42,7 @@
                         <tr>
                             <td><?php echo $tool->id; ?></td>
                             <td><?php echo $tool->name; ?></td>
-                            <td><img src="/images/<?php echo $tool->image; ?>" alt=""></td>
+                            <td><img src="build/images/<?php echo $tool->image; ?>" alt=""></td>
                             <td><?php echo $tool->description; ?></td>
                             <td><?php echo $tool->url; ?></td>
                             <td><?php echo $tool->category_id; ?></td>

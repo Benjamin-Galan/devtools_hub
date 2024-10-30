@@ -2,7 +2,7 @@
     <section class="introduction">
         <div class="astronaut-container">
             <div class="halo"></div>
-            <img loading="lazy" src="/images/astronauta.webp" alt="Astronaut floating in space" class="astronaut-image">
+            <img loading="lazy" src="/build/images/astronauta.webp" alt="Astronaut floating in space" class="astronaut-image">
         </div>
         <div class="introduction-text">
             <h1>Mejora y agiliza tu trabajo</h1>
