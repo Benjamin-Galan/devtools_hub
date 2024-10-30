@@ -36,7 +36,7 @@ class ToolController
             $tool = new Tool($_POST['tool']);
 
             //genera un nombre unico
-            $imgName = md5(uniqid(rand(), true)) . ".webp   ";
+            $imgName = md5(uniqid(rand(), true)) . ".webp";
 
             //make a resize to the image with intervention
             // create new image instance (800 x 600)
@@ -45,7 +45,6 @@ class ToolController
                 $image = $manager->read($_FILES['tool']['tmp_name']['image']);
                 // crop the best fitting 5:3 (600x360) ratio and resize to 600x360 pixel
                 $image->cover(800, 600);
-
                 $tool->setImage($imgName);
             }
 
@@ -88,7 +87,6 @@ class ToolController
             $args = $_POST['tool'];
             $tool->sincronizar($args);
             $errors = $tool->validate();
-
 
             //validacion de subida de archivos
             if ($_FILES['tool']['tmp_name']['image']) {
