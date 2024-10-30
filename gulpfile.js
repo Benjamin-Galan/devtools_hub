@@ -1,4 +1,4 @@
-import { dest, src, watch, series } from 'gulp'
+import { dest, src, watch, series, parallel } from 'gulp'
 import * as dartSass from 'sass'
 import gulpSass from 'gulp-sass'
 
@@ -37,4 +37,4 @@ export function dev(){
 }
 
 export default series(js, css, dev)
-export const build = series(css, js);
+export const build = parallel(css, js);
