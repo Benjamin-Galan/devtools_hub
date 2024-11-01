@@ -38,6 +38,7 @@ $router->get('/logout', [LoginController::class, 'logout'] );
 
 //api de herramientas
 $router->get('/api/tools', [APIController::class, 'tool']);
+$router->get('/api/limit', [APIController::class, 'limit']);
 $router->get('/api/category', [APIController::class, 'category']);
 
 $router->comprobarRutas();

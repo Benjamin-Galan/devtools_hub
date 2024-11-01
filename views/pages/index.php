@@ -24,7 +24,9 @@
 
     </section>
 
-    <?php include 'tools.php' ?>
+    <div id="limitToolsContainer" class="tools-grid">
+
+    </div>
 
     <section class="about">
         <div class="about-text">

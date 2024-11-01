@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     getToolsAPI(); // Llama a la API para obtener herramientas
     getCategoriesAPI(); // Llama a la API para obtener categorías
+    getLimitToolsAPI() ;
     mobileMenu(); // Inicializa el menú móvil
     dropDown(); // Inicializa el menú desplegable
     disabledDrop(); // Deshabilita el menú desplegable
@@ -11,15 +12,27 @@ document.addEventListener('DOMContentLoaded', function () {
 // Función asíncrona para obtener herramientas desde la API
 async function getToolsAPI() {
     try {
-        const URL = '/api/tools'; //`${location.origin}/api/tools`; 
+        const URL = '/api/tools'; 
         const result = await fetch(URL); 
         const tools = await result.json(); 
-        //Listar herramientas
-        listTools(tools); 
+        listTools(tools, '#toolsContainer'); // Mostrar todas las herramientas
     } catch (error) {
         console.log(error); 
     }
 }
+
+// Función asíncrona para obtener solo 8 herramientas desde la API
+async function getLimitToolsAPI() {
+    try {
+        const URL = '/api/limit'; 
+        const result = await fetch(URL); 
+        const tools = await result.json(); 
+        listTools(tools, '#limitToolsContainer', 8); // Mostrar solo las primeras 8 herramientas
+    } catch (error) {
+        console.log(error); 
+    }
+}
+
 
 // Función asíncrona para obtener categorías desde la API
 async function getCategoriesAPI() {
@@ -34,50 +47,32 @@ async function getCategoriesAPI() {
     }
 }
 
-// Función para listar herramientas en el contenedor HTML
-function listTools(tools) {
-    const toolsContainer = document.querySelector('#toolsContainer');
+//funcion que crea y limita herramientas mostradas dependiendo del contenedor
+function listTools(tools, containerId, limit = Infinity) {
+    const container = document.querySelector(containerId);
+    container.innerHTML = ''; // Limpiar el contenedor antes de añadir nuevas herramientas
 
-    tools.forEach(tool => {
-         //Obtener los datos de la herramienta
+    tools.slice(0, limit).forEach(tool => {
         const { name, image, description, url, category_id } = tool;
 
-        //Contenedor para la herramienta
+        // Contenedor para la herramienta
         const toolContainer = document.createElement('div'); 
         toolContainer.classList.add('card'); 
         toolContainer.setAttribute('data-category-id', category_id); 
 
-        // Crea y añade el nombre de la herramienta
-        const toolName = document.createElement('h3');
-        toolName.textContent = name;
+        // Crea y añade los elementos
+        toolContainer.innerHTML = `
+            <h3>${name}</h3>
+            <img loading="lazy" src="build/images/${image}" alt="Imagen de la herramienta">
+            <p>${description}</p>
+            <a href="${url}" target="_blank" class="button">Explorar</a>
+        `;
 
-        // Crea y añade la imagen de la herramienta
-        const toolImg = document.createElement('IMG');
-        toolImg.loading = 'lazy'; 
-        toolImg.src = `build/images/${image}`;
-        toolImg.alt = 'Imagen de la página';
-
-        // Crea y añade la descripción de la herramienta
-        const toolDescription = document.createElement('p');
-        toolDescription.textContent = description;
-
-        // Crea y añade el enlace a la herramienta
-        const toolLink = document.createElement('a');
-        toolLink.href = url; 
-        toolLink.textContent = 'Explorar'; 
-        toolLink.target = '_blank'; 
-        toolLink.classList.add('button');
-
-        // Añade los elementos al contenedor de la herramienta
-        toolContainer.appendChild(toolName);
-        toolContainer.appendChild(toolImg);
-        toolContainer.appendChild(toolDescription);
-        toolContainer.appendChild(toolLink);
-
-        // Añade la tarjeta de herramienta al contenedor de herramientas
-        toolsContainer.appendChild(toolContainer);
+        // Añade la tarjeta de herramienta al contenedor
+        container.appendChild(toolContainer);
     });
 }
+
 
 // Función para listar categorías en el contenedor HTML
 function listCategories(categories) {
